@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <body>
+    <th:block th:fragment="header">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/home">CloudDeliveries</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/service_info">Services and Prices</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+
+
+            </ul>
+            <ul class="navbar-nav nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../sign_up/">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../login/">Sign In</a>
+                </li>
+            </ul>
+        </nav>
+    </th:block>
+
+
+</body>
+</html>

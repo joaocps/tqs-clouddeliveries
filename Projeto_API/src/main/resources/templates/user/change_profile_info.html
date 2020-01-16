@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{user/fragments/layout}">
+    <head>
+        <title>My Profile</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        	.form-control {border : 0;}
+        </style>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <form action="#" th:action="@{/user/update}" th:object="${user}" method="post">
+                <div class="card shadow mb-4 mx-5 my-5">
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h6><strong>First Name</strong></h6>
+                            </div>
+                            <div class="col">
+                                <input class = "form-control" th:field="*{firstName}" />
+                            </div>      
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col ">
+                                <h6><strong>Last Name</strong></h6>
+                            </div>
+                            <div class="col ">
+                                <input class = "form-control" th:field="*{lastName}" />
+                            </div>      
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <h6><strong>Address</strong></h6>
+                            </div>
+                            <div class="col ">
+                                <input class = "form-control" th:field="*{address}" />
+                            </div>      
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <h6><strong>Country</strong></h6>
+                            </div>
+                            <div class="col ">
+                                <input class = "form-control" th:field="*{country}" />
+                            </div>      
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <h6><strong>Email</strong></h6>
+                            </div>
+                            <div class="col ">
+                                <input class = "form-control" th:field="*{email}" />
+                            </div>      
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <h6><strong>Phone Number</strong></h6>
+                            </div>
+                            <div class="col">
+                                <input class = "form-control" th:field="*{phoneNumber}" />
+                            </div>      
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <h6><strong>Password</strong></h6>
+                            </div>
+                            <div class="col ">
+                                <input class = "form-control" th:field="*{password}" />
+                            </div>      
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col text-center">
+                    <button  id ="sub" type="submit" class="btn btn-primary" onclick="changedAlert()">Change Info!</button>
+                    
+                
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{user/fragments/layout}">
+<head>
+<title>My Profile</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+	<div layout:fragment="content">
+
+		<div class="card shadow mb-4 mx-5 my-5">
+
+			<div class="card-body">
+				<div class="row">
+					<div class="col">
+						<h6>
+							<strong>First Name</strong>
+						</h6>
+					</div>
+					<div class="col">
+						<input class="form-control" readonly="readonly"
+							th:field="${user.firstName}" />
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col ">
+						<h6>
+							<strong>Last Name</strong>
+						</h6>
+					</div>
+					<div class="col ">
+						<input class="form-control disabled" readonly="readonly"
+							th:field="${user.lastName}" />
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col">
+						<h6>
+							<strong>Address</strong>
+						</h6>
+					</div>
+					<div class="col ">
+						<input class="form-control disabled" readonly="readonly"
+							th:field="${user.address}" />
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col">
+						<h6>
+							<strong>Country</strong>
+						</h6>
+					</div>
+					<div class="col ">
+						<input class="form-control disabled" readonly="readonly"
+							th:field="${user.country}" />
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col">
+						<h6>
+							<strong>Email</strong>
+						</h6>
+					</div>
+					<div class="col ">
+						<input class="form-control disabled" readonly="readonly"
+							th:field="${user.email}" />
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col">
+						<h6>
+							<strong>Phone Number</strong>
+						</h6>
+					</div>
+					<div class="col">
+						<input class="form-control disabled" readonly="readonly"
+							th:field="${user.phoneNumber}" />
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col">
+						<h6>
+							<strong>Password</strong>
+						</h6>
+					</div>
+					<div class="col ">
+						<input  type="text"
+							class="form-control disabled" readonly="readonly"
+							th:field="${user.password}" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col text-center">
+			<a id="submit" class="btn btn-primary" href="../changeuserprofile">Change
+				Profile Information</a>
+		</div>
+	</div>
+</body>
+</html>

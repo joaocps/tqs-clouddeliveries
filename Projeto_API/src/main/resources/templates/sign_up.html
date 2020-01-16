@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/home_layout}">
+<head>
+
+
+
+<title>Sign Up</title>
+</head>
+
+<body>
+	<div layout:fragment="content" class="container">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<img style = "display : block; margin-left : auto; margin-right : auto;" width="72px" height="72px"
+						src="https://png.icons8.com/color/1600/c-programming" />
+					<h2 style="text-align: center;">Sign up for MyCloudDeliveries</h2>
+					<h5 style="text-align: center;">Create and manage your
+						shipments</h5>
+					<br/>
+					<form action="#" th:action="@{/user/}" th:object="${user}"
+						method="post">
+
+						<div class="form-group row">
+							<div class=col-md-6>
+								<input type="text" name="firstName" th:field="*{firstName}"
+									class="form-control" id="first_name"
+									placeholder="Enter First Name" />
+							</div>
+							<div class=col-md-6>
+								<input type="text" name="lastName" th:field="*{lastName}"
+									class="form-control" id="last_name"
+									placeholder="Enter Last Name" />
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							<input type="text" th:field="*{address}" name="address"
+								class="form-control" id="address" placeholder="Address">
+						</div>
+
+						<div class="form-group row">
+							<div class="col-md-6">
+								<input type="text" th:field="*{phoneNumber}"
+									name="phone_number" class="form-control" id="number"
+									placeholder="Phone Number" />
+							</div>
+							<div class="col-md-6">
+								<input type="text" name="email" th:field="*{email}"
+									class="form-control" id="email" placeholder="Email" />
+							</div>
+
+						</div>
+
+
+						<div class="form-group row">
+							<div class="col-md-6">
+
+								<input type="password" th:field="*{password}" name="password"
+									class="form-control" id="password" placeholder="Password" />
+							</div>
+
+							<div class="col-md-6">
+								<select class="form-control" id="country" th:field="*{country}">
+									<option th:value="Portugal-Continental">
+										Portugal-Continental</option>
+									<option th:value="Portugal-Islands">Portugal-Islands</option>
+									<option th:value="Spain">Spain</option>
+
+								</select>
+							</div>
+
+						</div>
+						<div class = "form-group ">
+							<button style = "margin : auto; display : block; width : 150px;" id="submeter" type="submit" 
+							class="btn btn-primary ">Register</button>
+						</div>
+						
+
+					</form>
+
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+
+</body>
+
+</html>

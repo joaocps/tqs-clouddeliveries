@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{user/fragments/layout}">
+<head>
+<title>MyCloudDeliveries</title>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+	$(document).ready(function() {
+		
+			$(".com").click(function(){
+				var order_id = this.id;
+				console.log(order_id);
+		     	$(".modal-body #order_id").val( order_id );
+			})
+			
+			$("#submit").click(function(){
+				var response = {
+    				text : $("#comment").val(),
+    				order_id : $("#order_id").val(),
+    				rating : $("#rating").val(),
+    			};
+    			
+    			
+    			$.ajax({
+						type : "POST",
+						url : "/order/comment",
+						contentType : "application/json",
+						data : JSON.stringify(response),
+						processData: false,
+						success: function (response) {
+							
+							alert("O Vasco é gay!");							
+						}, error: function (response) {
+							
+							alert("O Vasco é gay e também deu merda!");
+						}
+					});
+			
+		})
+	})
+	
+</script>
+
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.checked {
+	color: orange;
+}
+</style>
+
+<script>
+	function add(ths, sno) {
+		$("#rating").val(sno);
+		for (var i = 1; i <= 5; i++) {
+			var cur = document.getElementById("star" + i)
+			cur.className = "fa fa-star"
+		}
+
+		for (var i = 1; i <= sno; i++) {
+			var cur = document.getElementById("star" + i)
+			if (cur.className == "fa fa-star") {
+				cur.className = "fa fa-star checked"
+			}
+		}
+
+	}
+</script>
+
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<br />
+		<h1 id="h1">
+			Current Requests : <span id="num_requests"
+				th:text="${#lists.size(orders)}"></span>
+		</h1>
+		<br />
+		<table id="tabela" th:if="${#lists.size(orders)} != 0"
+			class="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>Type Object</th>
+					<th>State</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="order, iter : ${orders}">
+					<td th:text="${iter.index}"></td>
+					<td th:text="${order.name}"></td>
+					<td th:text="${order.category}"></td>
+					<td th:text="${order.state}"></td>
+					<td th:if="${order.comment()}">
+						<button th:id="${order.id}" class="btn btn-primary com"
+							data-toggle="modal" data-target="#exampleModal">Comment
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Comment</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<input class="d-none" type="text" name="order_id" id="order_id" />
+						<input style="border: 0;" type="text" id="comment"
+							class="form-control" placeholder="Write your Comment..." /> <br />
+						<hr />
+						<br /> <span class="fa fa-star" id="star1" onclick="add(this,1)"></span>
+						<span class="fa fa-star" id="star2" onclick="add(this,2)"></span>
+						<span class="fa fa-star" id="star3" onclick="add(this,3)"></span>
+						<span class="fa fa-star" id="star4" onclick="add(this,4)"></span>
+						<span class="fa fa-star" id="star5" onclick="add(this,5)"></span>
+						<input id="rating" class="d-none" />
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button" id="submit" class="btn btn-primary">Save
+							changes</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+</body>
+
+</html>

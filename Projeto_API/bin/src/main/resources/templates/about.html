@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{fragments/home_layout}">
+    <head>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+        <title>About</title>
+
+        <style>
+            html {
+                height:100%;
+            }
+
+            body {
+                margin:0;
+            }
+
+            .bg {
+                animation:slide 3s ease-in-out infinite alternate;
+                background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+                bottom:0;
+                left:-50%;
+                opacity:.5;
+                position:fixed;
+                right:-50%;
+                top:0;
+                z-index:-1;
+            }
+
+            .bg2 {
+                animation-direction:alternate-reverse;
+                animation-duration:4s;
+            }
+
+            .bg3 {
+                animation-duration:5s;
+            }
+
+            .content {
+                background-color:rgba(255,255,255,.8);
+                border-radius:.25em;
+                box-shadow:0 0 .25em rgba(0,0,0,.25);
+                box-sizing:border-box;
+                left:50%;
+                padding:10vmin;
+                position:fixed;
+                text-align:center;
+                top:50%;
+                transform:translate(-50%, -50%);
+            }
+
+            h1 {
+                font-family:monospace;
+            }
+
+            @keyframes slide {
+                0% {
+                    transform:translateX(-25%);
+                }
+                100% {
+                    transform:translateX(25%);
+                }
+            }
+        </style>
+        
+    </head>
+    <title>About</title>
+    <body>
+        <div layout:fragment="content" class="container">
+            
+            <div class="bg"></div>
+            <div class="bg bg2"></div>
+            <div class="bg bg3"></div>
+            <div class="jumbotron" align="center">
+                <h1>About our Company</h1>
+                <p>Create and Manage your Shipments</p>
+                
+                <div class="container py-3">
+    <div class="row">
+        <div class="col-10 mx-auto">
+            <div class="accordion" id="faqExample">
+                <div class="card">
+                    <div class="card-header p-2" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              Q: Quem somos?
+                            </button>
+                          </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqExample">
+                        <div class="card-body">
+                            <b>Answer:</b> A CloudDeliveries é uma empresa que visa facilitar todo o processo de transporte de encomendas.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header p-2" id="headingTwo">
+                        <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Q: Quem vai transportar a minha encomenda?
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqExample">
+                        <div class="card-body">
+                            Os motoristas CloudDeliveries são motoristas com experiência e certificados pelos nossos serviços. Se alguma anomalia acontecer durante todo o processo, a CloudDeliveries é responsável.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header p-2" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              Q. Outra Questao?
+                            </button>
+                          </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqExample">
+                        <div class="card-body">
+                            The answer to the question can go here.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header p-2" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              Q. E outra?
+                            </button>
+                          </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqExample">
+                        <div class="card-body">
+                            The answer to this question can go here. This FAQ example can contain all the Q/A that is needed.
+                        </div>
+                    </div>
+                </div>
+                        				<br><img id="background" th:src="@{/uploads/spedizione_courier-hd-pictures-43579_1423143481.jpg}" class="mx-auto d-block"/>
+                
+            </div>
+
+        </div>
+        
+    </div>
+    <!--/row-->
+</div>
+		<div>
+		
+		</div>
+                
+                
+
+            </div>
+            
+        </div>
+        
+    </body>
+</html>

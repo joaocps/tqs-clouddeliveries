@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{user/fragments/layout}">
+<head>
+    <title>Secured</title>
+    
+    <script>
+    	$(document).ready(function(){
+    		
+    		
+    		
+    		$("#submit").click(function(){
+    			
+    			var response = {
+    				name : $("#name").val(),
+    				recipientAddress : $("#address").val(),
+    				recipientContact : $("#phone").val(),
+    				category : $("#typeproduct").val()
+    			};
+    			
+    			
+    			$.ajax({
+						type : "POST",
+						url : "../order/",
+						contentType : "application/json",
+						dataType : 'json',
+						data : JSON.stringify(response),
+						
+						
+					}).always(function(data) {
+						if (data.responseText.localeCompare("success") == 0) {
+							window.location.href = "../userhome";
+
+						} else
+							window.location.href = "../error";
+							
+					});
+    		})
+    	})
+    </script>
+</head>
+<body>
+
+<div layout:fragment="content" >
+
+	<br/>
+	<h1> Create Order </h1>
+	<br/>
+	<div class="form-group">
+    	<input  type="name" class="form-control" id="name"  placeholder="Enter product name">
+  	</div>
+	
+	<div class="form-group">
+    	<input  type="address" class="form-control" id="address"  placeholder="Enter address">
+  	</div>
+
+  	
+  	<div class="form-group">
+    	<input  type="phone" class="form-control" id="phone"  placeholder="Enter Phone Number">
+    	<small id="emailHelp" class="form-text text-muted">We'll never share your phone number with anyone else</small>
+  	</div>
+  	
+  	<select  class = "form-control" id="typeproduct">
+  		<option th:each = "category : ${categories}" th:text = "${category.name}" th:value = "${category.id}"></option>	
+  	</select>
+  	<br/>
+  	
+  	<button type="button" id="submit" class="btn btn-primary">Submit</button>
+</div>
+</body>
+</html>

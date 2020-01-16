@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{user/fragments/layout}">
+<head>
+    <title>MyCloudDeliveries</title>
+</head>
+<body>
+
+<div layout:fragment="content" >
+    <h1> Current Requests : <span th:text = "${#lists.size(orders)}"></span></h1>
+    <table th:if = "${#lists.size(orders)} != 0" class="table table-striped">
+    	<thead>
+	      <tr>
+	      	<th>#</th>
+	        <th>Name</th>
+	        <th>Price</th>
+	        <th>State</th>
+	      </tr>
+    </thead>
+    <tbody>
+    	<tr th:each = "order, iter : ${orders}">
+    		<td th:text = "${iter.index}"></td>
+    		<td th:text = "${order.name}"></td>
+    		<td th:text = "${order.price}"></td>
+    		<td th:text = "${order.state}"></td>
+    	</tr>
+    </tbody>
+    </table>
+    
+    
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{fragments/home_layout}">
+    <head>
+        <title>Services and Prices</title>
+
+        <style>
+            .pricing .card {
+                border: none;
+                border-radius: 1rem;
+                transition: all 0.2s;
+                box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+            }
+
+            .pricing hr {
+                margin: 1.5rem 0;
+            }
+
+            .pricing .card-title {
+                margin: 0.5rem 0;
+                font-size: 0.9rem;
+                letter-spacing: .1rem;
+                font-weight: bold;
+            }
+
+            .pricing .card-price {
+                font-size: 3rem;
+                margin: 0;
+            }
+
+            .pricing .card-price .period {
+                font-size: 0.8rem;
+            }
+
+            .pricing ul li {
+                margin-bottom: 1rem;
+            }
+
+            .pricing .text-muted {
+                opacity: 0.7;
+            }
+
+            .pricing .btn {
+                font-size: 80%;
+                border-radius: 5rem;
+                letter-spacing: .1rem;
+                font-weight: bold;
+                padding: 1rem;
+                opacity: 0.7;
+                transition: all 0.2s;
+            }
+
+            /* Hover Effects on Card */
+
+            @media (min-width: 992px) {
+                .pricing .card:hover {
+                    margin-top: -.25rem;
+                    margin-bottom: .25rem;
+                    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+                }
+                .pricing .card:hover .btn {
+                    opacity: 1;
+                }
+            }
+            html {
+                height:100%;
+            }
+
+            body {
+                margin:0;
+            }
+
+            .bg {
+                animation:slide 3s ease-in-out infinite alternate;
+                background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+                bottom:0;
+                left:-50%;
+                opacity:.5;
+                position:fixed;
+                right:-50%;
+                top:0;
+                z-index:-1;
+            }
+
+            .bg2 {
+                animation-direction:alternate-reverse;
+                animation-duration:4s;
+            }
+
+            .bg3 {
+                animation-duration:5s;
+            }
+
+            .content {
+                background-color:rgba(255,255,255,.8);
+                border-radius:.25em;
+                box-shadow:0 0 .25em rgba(0,0,0,.25);
+                box-sizing:border-box;
+                left:50%;
+                padding:10vmin;
+                position:fixed;
+                text-align:center;
+                top:50%;
+                transform:translate(-50%, -50%);
+            }
+
+            h1 {
+                font-family:monospace;
+            }
+
+            @keyframes slide {
+                0% {
+                    transform:translateX(-25%);
+                }
+                100% {
+                    transform:translateX(25%);
+                }
+            }
+        </style>
+
+
+    </head>
+
+    <body>
+        <div layout:fragment="content" class="container">
+            <div class="bg"></div>
+            <div class="bg bg2"></div>
+            <div class="bg bg3"></div>
+            <div class="jumbotron" align="center">
+                <h1>Services and Prices Information</h1>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <!-- Free Tier -->
+                        <div class="col-lg-4">
+                            <div class="card mb-5 mb-lg-0">
+                                <div class="card-body">
+                                    <h5 class="card-title text-muted text-uppercase text-center">Custom</h5>
+                                    <h6 class="card-price text-center">€29<span class="period">/month</span></h6>
+                                    <hr>
+                                    <ul class="fa-ul">
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>1 Deliverie</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Customizable Profile</li>
+                                        <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>My last Deliveries</li>
+                                        <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Dedicated Phone Support</li>
+                                        <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports</li>
+                                    </ul>
+                                    <a href="../sign_up/" class="btn btn-block btn-primary text-uppercase">Start Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Plus Tier -->
+                        <div class="col-lg-4">
+                            <div class="card mb-5 mb-lg-0">
+                                <div class="card-body">
+                                    <h5 class="card-title text-muted text-uppercase text-center">Plus</h5>
+                                    <h6 class="card-price text-center">€119<span class="period">/month</span></h6>
+                                    <hr>
+                                    <ul class="fa-ul">
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>5 Deliveries</strong></li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Customizable Profile</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>My last Deliveries</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Monthly Status Reports</li>
+                                    </ul>
+                                    <a href="../sign_up/" class="btn btn-block btn-primary text-uppercase">Start Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pro Tier -->
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-muted text-uppercase text-center">Pro</h5>
+                                    <h6 class="card-price text-center">€199<span class="period">/month</span></h6>
+                                    <hr>
+                                    <ul class="fa-ul">
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>10 Deliveries</strong></li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Customizable Profile</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>My last Deliveries</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Monthly Status Reports</li>
+                                    </ul>
+                                    <a href="../sign_up/" class="btn btn-block btn-primary text-uppercase">Start Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
